@@ -25,6 +25,7 @@ SOFTWARE.
 program SsoModalDialog;
 
 {$APPTYPE CONSOLE}
+{$R *.res}
 
 uses
   SysUtils,
