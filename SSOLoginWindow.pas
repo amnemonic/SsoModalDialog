@@ -65,16 +65,23 @@ begin
 end;
 
 procedure TMainForm.WebBrowser1BeforeNavigate2(ASender: TObject; const pDisp: IDispatch; var URL, Flags, TargetFrameName, PostData, Headers: OleVariant; var Cancel: WordBool);
-  var PostStr:String;
+  var PostStr,HeadStr:String;
 begin
   PostStr:= SsoUtils.VariantToString(PostData);
-  writeln('[URL]'+URL);
-  if Pos(LowerCase(POST_SEARCH),LowerCase(PostStr))>0 then begin
-    writeln('[SAML]'+PostStr);
-    Cancel:=true; //Cancel further navigation
+  HeadStr:= SsoUtils.VariantToString(Headers);
+  Writeln('[REQUEST]');
+  Writeln('[URL]'+URL+'[/URL]');
+  Writeln('[POST]'+PostStr+'[/POST]');
+  Writeln('[HEAD]'+HeadStr+'[/HEAD]');
+
+
+  if (Pos(LowerCase(POST_SEARCH),LowerCase(PostStr))>0) or (Pos(LowerCase(POST_SEARCH),LowerCase(HeadStr))>0) then begin
+    Writeln('[STRING_FOUND]');
+    Cancel:=true;
     MainForm.Close;
   end;
-  
+
+  Writeln('[/REQUEST]');
 end;
 
 end.
