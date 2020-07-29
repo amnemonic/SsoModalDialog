@@ -1,11 +1,14 @@
 # SsoModalDialog
-Universal SSO Modal window to use in your application
+Universal SSO Modal window to use in your _non-web-browser-based_ application. It prints out Saml Response to standard output. 
+
+![Main and only window](https://raw.githubusercontent.com/amnemonic/SsoModalDialog/master/examples/img/stubidp.sustainsys.com.png)
+
 
 # Usage
 
 `SsoModalDialog.exe <SSO Url Address> [<SearchString>] [<SSO Title>]`
 
-* `<Se<archString>` defaults to `SAMLResponse`
+* `<SearchString>` defaults to `SAMLResponse`
 * `<SSO Title>` defaults to `Login`
 
 ## Python
@@ -42,8 +45,9 @@ $SAMLresp_asString    = [System.Text.Encoding]::UTF8.GetString($SAMLresp_b64_dec
 Write-Host $SAMLresp_asString
 ```
 
-More in [examples](https://github.com/amnemonic/SsoModalDialog/blob/master/examples/)
+More in [examples](https://github.com/amnemonic/SsoModalDialog/blob/master/examples/) directory.
 
+Compiled binaries available in [Releases](https://github.com/amnemonic/SsoModalDialog/releases).
 
 # Credits
 Icon from http://icons8.com/ ([iconarchive.com](http://www.iconarchive.com/show/windows-8-icons-by-icons8/User-Interface-Login-icon.html))
